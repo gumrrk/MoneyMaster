@@ -1,0 +1,16 @@
+@keyframes show-modal {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 50%;
+    }
+}
+
+.financialOperation_dialog {
+    /* outras propriedades */
+    position: fixed;
+    top: -100%;
+    animation: show-modal 0.3s forwards;
+}

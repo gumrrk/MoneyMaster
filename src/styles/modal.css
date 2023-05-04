@@ -1,0 +1,397 @@
+@media (max-width: 767px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 37, 41, 0.5);
+    z-index: 1;
+  }
+
+  .financialOperation_dialog {
+    display: none;
+    height: fit-content;
+    width: 92%;
+    max-width: 31.9375rem;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-mode);
+    border-radius: var(--radius-1);
+    padding: 1.5rem 1.5rem;
+    border: none;
+    z-index: 2;
+  }
+
+  .financialOperation_dialog .visible {
+    display: flex;
+  }
+
+  .financialOperation_dialog_div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--color-mode);
+    border-radius: var(--radius-1);
+    gap: 1.5625rem;
+  }
+
+  .dialog_div-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .dialog_div-1 h1 {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-2);
+    color: var(--color-grey-1);
+  }
+
+  .dialog_div-1 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+    background-color: var(--color-grey-5);
+    padding: .25rem .75rem;
+    border-radius: .25rem;
+    border: none;
+    font-family: var(--font-family-2);
+  }
+
+  .dialog_div-2 {
+    display: flex;
+  }
+
+  .dialog_div-2 p {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-3);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+    text-align: justify;
+  }
+
+  .dialog_div-3 {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dialog_div_label {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--font-line-height-3);
+    color: var(--color-grey-1);
+  }
+
+  .transactionValue_input {
+    display: flex;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+    align-items: center;
+    padding: 11.5px 16px .7188rem 2.9375rem;
+    border-radius: var(--radius-1);
+    border: 2px solid var(--color-grey-3);
+    width: 100%;
+  }
+
+  .transactionValue_input::placeholder {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-3);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+  }
+
+  .dialog_div-3::before {
+    content: "R$";
+    position: absolute;
+    top: 67.9%;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+    padding-left: 16px;
+    transform: translateY(-50%);
+    display: inline-block;
+  }
+
+  .dialog_div-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .dialog_div-4_nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    flex-direction: column;
+  }
+
+  .bt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transactionButtons {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-3);
+    color: var(--color-grey-2);
+    padding: .4688rem;
+    border: 2px solid var(--color-grey-5);
+    border-radius: var(--radius-1);
+    width: 100%;
+  }
+
+  .dialog_div-5 {
+    margin-top: .1875rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .dialog_div-5_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .4375rem 1.8281rem;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+    width: 47.288%;
+    border: none;
+    border-radius: var(--radius-1);
+  }
+
+  #cancel {
+    background-color: var(--color-grey-4);
+    color: var(--color-grey-2);
+  }
+
+  #insertValue {
+    background-color: var(--color-brand-1);
+    color: var(--fixed-white);
+  }
+}
+
+@media (min-width: 767px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 37, 41, 0.5);
+    z-index: 1;
+  }
+
+  .financialOperation_dialog {
+    display: none;
+    height: fit-content;
+    width: 26.75rem;
+    height: 21.875rem;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-mode);
+    border-radius: var(--radius-1);
+    padding: 1.5rem 1.5rem;
+    border: none;
+    z-index: 2;
+  }
+
+  .financialOperation_dialog_div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--color-mode);
+    border-radius: var(--radius-1);
+    gap: 1.5625rem;
+  }
+
+  .dialog_div-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dialog_div-1_h1 {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-2);
+    color: var(--color-grey-1);
+  }
+
+  .exitButton {
+    display: inline-block;
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-1);
+    vertical-align: middle;
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+    background-color: var(--color-grey-5);
+    padding: .25rem .75rem;
+    border-radius: .25rem;
+    border: none;
+    font-family: var(--font-family-2);
+  }
+
+  .dialog_div-2 {
+    display: flex;
+  }
+
+  .dialog_div-2 p {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-3);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+    text-align: justify;
+  }
+
+  .dialog_div-3 {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dialog_div_label {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--font-line-height-3);
+    color: var(--color-grey-1);
+  }
+
+  .transactionValue_input {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2-fixed);
+    padding: 11.5px 16px .7188rem 2.9375rem;
+    border-radius: var(--radius-1);
+    border: 2px solid var(--color-grey-3);
+    width: 100%;
+    cursor: text;
+  }
+
+  .transactionValue_input::placeholder {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-3);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2-fixed);
+  }
+
+  .dialog_div-3::before {
+    content: "R$";
+    position: absolute;
+    top: 67.9%;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-2);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2-fixed);
+    padding-left: 16px;
+    transform: translateY(-50%);
+    display: inline-block;
+  }
+
+  .dialog_div-4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .dialog_div-4_nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .75rem;
+  }
+
+  .bt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transactionButtons {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-3);
+    color: var(--color-grey-2);
+    padding: .4688rem .875rem;
+    border: 2px solid var(--color-grey-5);
+    border-radius: var(--radius-1);
+    cursor: pointer;
+  }
+
+  .dialog_div-5 {
+    margin-top: .1875rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .dialog_div-5_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .4375rem .875rem;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-1);
+    color: var(--color-grey-2);
+    width: fit-content;
+    border: none;
+    border-radius: var(--radius-1);
+  }
+
+  #cancel {
+    background-color: var(--color-grey-5);
+    color: var(--color-grey-2);
+  }
+
+  #insertValue {
+    background-color: var(--color-brand-1);
+    color: var(--fixed-white);
+  }
+}

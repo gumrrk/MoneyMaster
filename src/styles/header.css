@@ -1,0 +1,93 @@
+@media (max-width: 767px) {
+    header {
+        position: fixed;
+        height: fit-content;
+        width: 100%;
+        background-color: var(--color-grey-5);
+    }
+
+    .header_nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 28px 16px;
+    }
+
+    .header_h1 {
+        margin-bottom: 1.25rem;
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-1);
+        color: var(--color-grey-1);
+        cursor: pointer;
+    }
+
+    .header_h1 span {
+        color: var(--color-brand-1);
+    }
+
+    .header_button {
+        display: flex;
+        width: 100%;
+        font-size: var(--font-size-3);
+        font-weight: var(--font-weight-1);
+        align-self: center;
+        height: 2rem;
+        border-radius: var(--radius-1);
+        box-sizing: border-box;
+        background-color: var(--color-brand-1);
+        border: none;
+        align-items: center;
+        justify-content: center;
+        color: var(--fixed-white);
+    }
+}
+
+@media (min-width: 767px) {
+    header {
+        display: flex;
+        position: fixed;
+        height: fit-content;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 6.8125rem;
+        background-color: var(--color-grey-5);
+    }
+
+    .header_nav {
+        display: flex;
+        flex-direction: row;
+        width: 47.2%;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1rem ;
+    }
+
+    .header_h1 {
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-1);
+        cursor: pointer;
+        color: var(--color-grey-1);
+    }
+
+    .header_h1 span {
+        color: var(--color-brand-1);
+    }
+
+    .header_button {
+        display: flex;
+        width: fit-content;
+        font-size: var(--font-size-3);
+        font-weight: var(--font-weight-1);
+        align-self: center;
+        height: 2rem;
+        border-radius: var(--radius-1);
+        box-sizing: border-box;
+        background-color: var(--color-brand-1);
+        border: none;
+        padding: .4688rem .875rem;
+        align-items: center;
+        justify-content: center;
+        color: var(--fixed-white);
+    }
+}

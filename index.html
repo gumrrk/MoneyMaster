@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoneyMaster</title>
+  <link rel="shortcut icon" href="./src/assets/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="MoneyMaster - Seu controle financeiro" />
+  <link rel="stylesheet" href="./src/styles/index.css" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <nav class="header_nav">
+      <h1 class="header_h1"><span>Money</span>Master</h1>
+      <button class="header_button openModal" id="">Registrar novo valor</button>
+    </nav>
+  </header>
+  <dialog class="financialOperation_dialog">
+    <div class="financialOperation_dialog_div">
+      <div class="dialog_div-1">
+        <h1 class="dialog_div-1_h1">Registro de valor</h1>
+        <button class="exitButton">X</button>
+      </div>
+      <div class="dialog_div-2">
+        <p>
+          Digite o valor e em seguida aperte no botão referente ao tipo do valor
+        </p>
+      </div>
+      <div class="dialog_div-3">
+        <label for="transactionValue_input" class="dialog_div_label ">Valor</label>
+        <input type="number" placeholder="00,00" id="transactionValue_input" class="transactionValue_input"></input>
+      </div>
+      <div class="dialog_div-4">
+        <label for="dialog_div-4_nav" class="dialog_div_label">Tipo de Valor</label>
+        <nav class="dialog_div-4_nav" id="dialog_div-4_nav">
+          <input type="radio" hidden id="valueType_entry" value="0" name="valueType" required>
+          <label tabindex="1" for="valueType_entry" class="bt transactionButtons">Entrada</label>
+          <input type="radio" hidden id="valueType_exit" value="1" name="valueType" required>
+          <label tabindex="2" for="valueType_exit" class="bt transactionButtons">Saída</label>
+        </nav>
+      </div>
+      <div class="dialog_div-5">
+        <button class="dialog_div-5_button" id="cancel">Cancelar</button>
+        <button class="dialog_div-5_button" id="insertValue">Inserir Valor</button>
+      </div>
+    </div>
+    </div>
+  </dialog>
+  <main id="app">
+    <div class="financialSummary">
+      <h1 class="financialSummary_title">Resumo Financeiro</h1>
+      <nav class="financialSummary_nav">
+        <input type="radio" hidden id="filterAll" value="1" name="filterType" value="all" required>
+        <label for="filterAll" class="filterButton">Todos</label>
+
+        <input type="radio" hidden id="filterEntry" value="2" name="filterType" value="entry" required>
+        <label for="filterEntry" class="filterButton">Entradas</label>
+
+        <input type="radio" hidden id="filterExit" value="3" name="filterType" value="exit" required>
+        <label for="filterExit" class="filterButton">Saídas</label>
+      </nav>
+    </div>
+    <div class="sumOfValues">
+      <p>Soma dos valores</p>
+      <p id="sum">R$ 00,00</p>
+    </div>
+    <div class="emptyTransactions">
+      <h1>Nenhum valor cadastrado</h1>
+      <p class="openModal">Registrar novo valor</p>
+    </div>
+    <ul class=" financialOperations_ul" id="financialOperations_ul">
+    </ul>
+    <button id="dark-button">🌙</button>
+  </main>
+  <script src="./src/scripts/modal.js"></script>
+  <script src="./src/scripts/valuesData.js"></script>
+  <script src="./src/scripts/index.js"></script>
+</body>
+
+</html>
