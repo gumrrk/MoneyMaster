@@ -26,6 +26,8 @@ function changeMode() {
         document.documentElement.style.setProperty('--color-grey-2-fixed', '#495057');
         document.documentElement.style.setProperty('--fixed-white', '#ffffff');
         document.documentElement.style.setProperty('--color-mode', '#ffffff');
+        document.documentElement.style.setProperty('--color-green', '#F0FFF0');
+        document.documentElement.style.setProperty('--color-red', '#FFCCCC')
         document.getElementById("dark-button").innerHTML = "🌙";
         body.classList.remove('dark-mode');
     } else {
@@ -43,6 +45,8 @@ function changeMode() {
         document.documentElement.style.setProperty('--color-grey-2-fixed', '#495057');
         document.documentElement.style.setProperty('--fixed-white', '#ffffff');
         document.documentElement.style.setProperty('--color-mode', '#121212');
+        document.documentElement.style.setProperty('--color-green', '#3b4e17');
+        document.documentElement.style.setProperty('--color-red', '#5A0000')
         document.getElementById("dark-button").innerHTML = "☀️";
         body.classList.add('dark-mode');
     }
@@ -113,14 +117,15 @@ function removeTransaction(id) {
 }
 
 // Função que renderiza as transações na tela
-function renderAllTransactions() {
+function renderAllTransactions(filteredValues) {
     const ul = document.getElementById("financialOperations_ul");
     ul.innerHTML = "";
-    insertedValues.forEach(item => {
+    filteredValues.forEach(item => {
         const typeString = item.type === 0 ? "Entrada" : "Saída";
         renderTransaction(item.id, item.value, typeString);
     });
 }
+renderAllTransactions(insertedValues)
 
 // Função  que adiciona os eventListeners aos botões de filtro
 function filterButtons() {
@@ -129,17 +134,17 @@ function filterButtons() {
     const filterExitButton = document.getElementById("filterExit");
 
     filterAllButton.addEventListener("click", () => {
-        renderAllTransactions();
+        renderAllTransactions(insertedValues);
     });
 
     filterEntryButton.addEventListener("click", () => {
         const filteredValues = insertedValues.filter(item => item.type === 0);
-        renderFilteredTransactions(filteredValues);
+        renderAllTransactions(filteredValues);
     });
 
     filterExitButton.addEventListener("click", () => {
         const filteredValues = insertedValues.filter(item => item.type === 1);
-        renderFilteredTransactions(filteredValues);
+        renderAllTransactions(filteredValues);
     });
 
     filterAll.addEventListener("change", () => {
@@ -156,35 +161,47 @@ function filterButtons() {
 }
 filterButtons()
 
-// Função para renderizar os itens filtrados na tela
-function renderFilteredTransactions(filteredValues) {
-    const ul = document.getElementById("financialOperations_ul");
-    ul.innerHTML = "";
-    filteredValues.forEach(item => {
-        const typeString = item.type === 0 ? "Entrada" : "Saída";
-        renderTransaction(item.id, item.value, typeString);
-    });
-}
-
 // função que insere os valores no array insertedValues
 function insertValues() {
     const insertButton = document.getElementById("insertValue");
     const input = document.getElementById("transactionValue_input")
+
+    input.addEventListener("keydown", (event) => {
+        if (event.keyCode === 69) {
+            event.preventDefault();
+        }
+    });
+
     insertButton.addEventListener("click", () => {
         apllySumValues();
         const valueInput = document.getElementById("transactionValue_input").value;
         const selectedRadio = document.querySelector('input[name="valueType"]:checked');
 
-        if (valueInput && selectedRadio) {
+        if ((valueInput && selectedRadio && (valueInput > 0) && (valueInput != 'isNaN'))) {
             const value = parseFloat(valueInput.replace(",", "."));
             const type = parseInt(selectedRadio.value);
             const id = insertedValues.length + 1
             insertedValues.push({ id, value, type });
-            renderAllTransactions();
+            renderAllTransactions(insertedValues);
             console.log(insertedValues);
             input.value = '';
+            const successDiv = document.createElement("div");
+            successDiv.classList.add("successDiv");
+            successDiv.innerHTML = "Adicionado com sucesso!";
+            document.body.appendChild(successDiv);
+
+            setTimeout(() => {
+                successDiv.remove();
+            }, 1300);
         } else {
-            alert("Por favor, preencha todos os campos antes de enviar.");
+            const errorDiv = document.createElement("div");
+            errorDiv.classList.add("errorDiv");
+            errorDiv.innerHTML = "Por favor, preencha os dados corretamente";
+            document.body.appendChild(errorDiv);
+
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 1500);
         }
     });
 }
@@ -245,15 +262,15 @@ function updateSumByFilter() {
 
     if (selectedFilter === "all") {
         sum = totalEntry - totalExit;
-        renderAllTransactions();
+        renderAllTransactions(insertedValues);
     } else if (selectedFilter === "entry") {
         sum = totalEntry;
         const filteredValues = insertedValues.filter(item => item.type === 0);
-        renderFilteredTransactions(filteredValues);
+        renderAllTransactions(filteredValues);
     } else if (selectedFilter === "exit") {
         sum = totalExit;
         const filteredValues = insertedValues.filter(item => item.type === 1);
-        renderFilteredTransactions(filteredValues);
+        renderAllTransactions(filteredValues);
     }
 
     const sumFormatted = new Intl.NumberFormat('pt-BR', { minimumIntegerDigits: 2, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(sum);
@@ -277,4 +294,3 @@ function hideEmpty() {
         emptyTransactions.style.display = 'none';
     }
 }
-

@@ -125,7 +125,7 @@
     font-size: var(--font-size-3);
     font-weight: var(--font-weight-2);
     line-height: var(--font-line-height-1);
-    color: var(--color-grey-2);
+    color: var(--color-grey-2-fixed);
     padding-left: 16px;
     transform: translateY(-50%);
     display: inline-block;
@@ -195,6 +195,40 @@
   #insertValue {
     background-color: var(--color-brand-1);
     color: var(--fixed-white);
+  }
+
+  .successDiv {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    top: 1.25rem;
+    padding: 1rem;
+    z-index: 3;
+    background-color: var(--color-green);
+    color: var(--color-grey-1);
+    border-radius: var(--radius-1);
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-1);
+  }
+
+  .errorDiv {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    top: 1.25rem;
+    padding: 1rem;
+    z-index: 3;
+    background-color: var(--color-red);
+    color: var(--color-grey-1);
+    border-radius: var(--radius-1);
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-1);
   }
 }
 
@@ -301,7 +335,7 @@
     font-weight: var(--font-weight-2);
     line-height: var(--font-line-height-1);
     color: var(--color-grey-2-fixed);
-    padding: 11.5px 16px .7188rem 2.9375rem;
+    padding: .7188rem 1rem .7188rem 2.9375rem;
     border-radius: var(--radius-1);
     border: 2px solid var(--color-grey-3);
     width: 100%;
@@ -393,5 +427,37 @@
   #insertValue {
     background-color: var(--color-brand-1);
     color: var(--fixed-white);
+  }
+
+  .successDiv {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 1.25rem;
+    background-color: var(--color-green);
+    color: var(--color-grey-1);
+    padding: 1rem;
+    border-radius: var(--radius-1);
+    z-index: 3;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-1);
+  }
+
+  .errorDiv {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 1.25rem;
+    background-color: var(--color-red);
+    color: var(--color-grey-1);
+    padding: 1rem;
+    border-radius: var(--radius-1);
+    z-index: 3;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-1);
   }
 }

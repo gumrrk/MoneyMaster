@@ -1,6 +1,8 @@
 @media (max-width: 767px) {
 
     body {
+        display: flex;
+        justify-content: center;
         background-color: var(--color-mode);
     }
 
@@ -165,7 +167,7 @@
         background-color: transparent;
         cursor: pointer;
         font-weight: normal;
-        position: absolute;
+        position: fixed;
         top: 22px;
         right: 16px;
         z-index: 0;
@@ -178,6 +180,10 @@
         display: flex;
         justify-content: center;
         background-color: var(--color-mode);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     #app {
