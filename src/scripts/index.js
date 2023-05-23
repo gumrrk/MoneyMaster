@@ -1,4 +1,3 @@
-// Função para atualizar a página ao clicar no nome da marca
 function reloadPage() {
     const headerH1 = document.querySelector('.header_h1');
 
@@ -8,11 +7,9 @@ function reloadPage() {
 }
 reloadPage()
 
-// Função responsável por alterar o tema da página entre claro e escuro
 function changeMode() {
     const body = document.body;
     if (body.classList.contains('dark-mode')) {
-        // Modo claro
         document.documentElement.style.setProperty('--color-brand-1', '#6741d9');
         document.documentElement.style.setProperty('--color-brand-2', '#4c3299');
         document.documentElement.style.setProperty('--color-brand-3', '#f0ecfb');
@@ -31,7 +28,6 @@ function changeMode() {
         document.getElementById("dark-button").innerHTML = "🌙";
         body.classList.remove('dark-mode');
     } else {
-        // Modo escuro
         document.documentElement.style.setProperty('--color-brand-1', '#6741d9');
         document.documentElement.style.setProperty('--color-brand-2', '#4c3299');
         document.documentElement.style.setProperty('--color-brand-3', '#000000');
@@ -52,14 +48,12 @@ function changeMode() {
     }
 }
 
-// Função que adiciona a função anterior ao botão de mudar tema no HTML
 function addDarkButton() {
     const button = document.querySelector('#dark-button')
     button.addEventListener('click', changeMode)
 }
 addDarkButton()
 
-// Função que renderiza o card de transação
 function renderTransaction(id, value, type) {
     const ul = document.getElementById("financialOperations_ul");
 
@@ -107,7 +101,6 @@ function renderTransaction(id, value, type) {
     hideEmpty();
 }
 
-// Função que remove a transação do array insertedValues com base no id
 function removeTransaction(id) {
     insertedValues = insertedValues.filter((transaction) => transaction.id !== id);
 
@@ -116,7 +109,6 @@ function removeTransaction(id) {
     hideEmpty();
 }
 
-// Função que renderiza as transações na tela
 function renderAllTransactions(filteredValues) {
     const ul = document.getElementById("financialOperations_ul");
     ul.innerHTML = "";
@@ -127,7 +119,6 @@ function renderAllTransactions(filteredValues) {
 }
 renderAllTransactions(insertedValues)
 
-// Função  que adiciona os eventListeners aos botões de filtro
 function filterButtons() {
     const filterAllButton = document.getElementById("filterAll");
     const filterEntryButton = document.getElementById("filterEntry");
@@ -161,7 +152,6 @@ function filterButtons() {
 }
 filterButtons()
 
-// função que insere os valores no array insertedValues
 function insertValues() {
     const insertButton = document.getElementById("insertValue");
     const input = document.getElementById("transactionValue_input")
@@ -207,7 +197,6 @@ function insertValues() {
 }
 insertValues()
 
-/// Função que soma os valores com base no tipo de transação
 function sumValues(type) {
     return insertedValues.reduce((accumulator, currentValue) => {
         if (currentValue.type === type) {
@@ -217,7 +206,6 @@ function sumValues(type) {
     }, 0);
 }
 
-// Função que aplica o sumValues() em cada botão
 function apllySumValues() {
     const filterAllButton = document.getElementById("filterAll");
     const filterEntryButton = document.getElementById("filterEntry");
@@ -279,11 +267,9 @@ function updateSumByFilter() {
 
 const insertValueButton = document.getElementById("insertValue");
 insertValueButton.addEventListener("click", () => {
-    // Código para obter o valor inserido e adicioná-lo a insertedValues
     updateSumByFilter();
 });
 
-// Função responsável por esconder ou mostrar o card quando não há transações renderizadas
 function hideEmpty() {
     const transactionList = document.querySelector('#financialOperations_ul');
     const emptyTransactions = document.querySelector('.emptyTransactions');
